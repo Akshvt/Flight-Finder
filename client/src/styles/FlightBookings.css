@@ -1,0 +1,165 @@
+/* General page styling */
+.user-bookingsPage {
+    padding: 50px;
+    background: url('https://cdn.pixabay.com/photo/2020/09/01/15/05/aircraft-cabin-5535467_1280.jpg') center center/cover no-repeat; /* Replace with your desired background image URL */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    transition: all 0.3s ease-in-out;
+    color: #fff; /* Ensure the text stands out on the background */
+}
+
+/* Title styling */
+.user-bookingsPage h1 {
+    font-size: 36px;
+    color: #ffffff; /* Adjust title color to white for better visibility */
+    text-align: center;
+    margin-bottom: 40px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Not approved box styling */
+.notApproved-box {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+    color: #f44336;
+    animation: slideIn 0.8s ease-out;
+}
+
+.notApproved-box h3 {
+    font-size: 24px;
+    color: #f44336;
+}
+
+/* Bookings grid styling */
+.user-bookings {
+    width: 100%;
+    max-width: 1000px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); /* Adjusted the minimum size for cards */
+    gap: 30px;
+    margin-top: 30px;
+    animation: fadeIn 1s ease-out;
+}
+
+/* User booking card styling */
+.user-booking {
+    background: rgba(255, 255, 255, 0.9); /* Slight transparency for the cards */
+    border-radius: 12px;
+    padding: 30px; /* Increased padding for larger card size */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    position: relative;
+    animation: floatUp 0.6s ease-out;
+}
+
+/* Hover effect for cards */
+.user-booking:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Paragraph styling inside booking cards */
+.user-booking p {
+    margin: 10px 0;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* Span element for different sections of the booking */
+.user-booking span {
+    display: block;
+    margin-top: 12px;
+}
+
+.user-booking span p {
+    margin: 6px 0;
+}
+
+/* Button styling inside the booking card */
+.user-booking button {
+    background-color: #f44336;
+    color: #fff;
+    border: none;
+    padding: 12px 25px; /* Increased padding for a larger button */
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: block;
+    margin: 15px 0 0 0;
+}
+
+.user-booking button:hover {
+    background-color: #d32f2f;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes floatUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .user-bookingsPage {
+        padding: 20px;
+    }
+
+    .user-bookings {
+        grid-template-columns: 1fr;
+    }
+
+    .user-booking {
+        padding: 25px; /* Increased padding on smaller devices */
+    }
+
+    .user-booking button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .user-booking p {
+        font-size: 13px;
+    }
+
+    .user-booking button {
+        font-size: 14px;
+    }
+}

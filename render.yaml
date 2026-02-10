@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: flight-finder
+    runtime: node
+    buildCommand: npm run render-build
+    startCommand: node server/index.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGODB_URI
+        sync: false  # You'll set this manually in the Render dashboard

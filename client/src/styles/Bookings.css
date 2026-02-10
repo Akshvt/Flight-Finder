@@ -1,0 +1,121 @@
+.user-bookingsPage {
+    padding: 2rem;
+    background: linear-gradient(to bottom right, #eef2f3, #8e9eab);
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  .user-bookingsPage h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #333;
+    animation: slideDown 0.8s ease;
+  }
+  
+  .user-bookings {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    padding: 1rem;
+  }
+  
+  .user-booking {
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 1.5rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeUp 0.5s ease;
+  }
+  
+  .user-booking:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.2);
+  }
+  
+  .user-booking span {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 10px 0;
+    gap: 1rem;
+  }
+  
+  .user-booking p {
+    margin: 0.3rem 0;
+    font-size: 0.95rem;
+    color: #444;
+  }
+  
+  .user-booking b {
+    color: #222;
+  }
+  
+  .user-booking ol {
+    padding-left: 1rem;
+    margin: 0.5rem 0;
+  }
+  
+  .btn-danger {
+    background-color: #ff4d4f;
+    border: none;
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 1rem;
+    font-weight: bold;
+    transition: background 0.3s ease;
+  }
+  
+  .btn-danger:hover {
+    background-color: #d9363e;
+  }
+  
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  }
+  
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeIn {
+    from {
+      background-color: #f3f3f3;
+    }
+    to {
+      background-color: #eef2f3;
+    }
+  }
+  
+  @media screen and (max-width: 600px) {
+    .user-bookingsPage {
+      padding: 1rem;
+    }
+  
+    .user-booking {
+      padding: 1rem;
+    }
+  
+    .user-bookingsPage h1 {
+      font-size: 2rem;
+    }
+  }
+  

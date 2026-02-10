@@ -1,0 +1,184 @@
+/* General Styles for Admin Page */
+.admin-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url('https://images.unsplash.com/photo-1556388158-158ea5ccacbd?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); /* Replace with your own image URL */
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    padding: 40px 20px;
+    color: #ffffff;
+    font-family: 'Arial', sans-serif;
+    animation: fadeIn 1s ease-out;
+    justify-content: flex-start; /* Ensures content starts at the top */
+    position: relative; /* Allows absolute positioning inside */
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Admin Page Cards */
+.admin-page-cards {
+    display: flex;
+    justify-content: space-between; /* Space between the cards */
+    width: 80%; /* Width of the cards container */
+    margin-bottom: 40px;
+    position: absolute;
+    top: 180px; /* Adjust position from the top (moved further down) */
+    left: 50%;
+    transform: translateX(-50%); /* Center the cards container */
+}
+
+.card {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border-radius: 12px;
+    width: 30%; /* Reduced width for better spacing */
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: black; /* Set text color to black inside the card */
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+}
+
+/* Card Heading Color Change on Hover */
+.card h4 {
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+}
+
+.card:hover h4 {
+    color: #3498db; /* Change color to blue when hovered */
+}
+
+.card p {
+    font-size: 2.4rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.card button {
+    background-color: #3498db;
+    color: #ffffff;
+    padding: 12px 25px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.card button:hover {
+    background-color: #2980b9;
+    transform: scale(1.05);
+}
+
+/* Admin Requests Container */
+.admin-requests-container {
+    width: 80%; /* Adjust container width */
+    margin-top: 80px; /* Adjust margin for space from the top */
+    animation: slideUp 1s ease-out;
+    position: absolute;
+    top: 380px; /* Adjust top position (moved further down) */
+    left: 50%;
+    transform: translateX(-50%); /* Center the requests container */
+}
+
+@keyframes slideUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+.admin-requests-container h3 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    color: #ffffff;
+}
+
+.admin-requests {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.admin-request {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 15px;
+    width: 90%; /* Adjust width for responsiveness */
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.admin-request:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.admin-request span {
+    font-size: 1.1rem;
+    color: #333;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.admin-request-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.admin-request-actions button {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.admin-request-actions button:hover {
+    background-color: #2980b9;
+    transform: scale(1.05);
+}
+
+.admin-request-actions button.btn-danger {
+    background-color: #e74c3c;
+}
+
+.admin-request-actions button.btn-danger:hover {
+    background-color: #c0392b;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .admin-page-cards {
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+        width: 100%;
+    }
+
+    .card {
+        width: 90%;
+        margin-bottom: 20px;
+    }
+
+    .admin-request {
+        width: 90%;
+    }
+}

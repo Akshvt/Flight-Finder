@@ -1,0 +1,159 @@
+/* General Styles for Forms */
+.authForm {
+    width: 100%;
+    max-width: 450px;
+    margin: 40px auto;
+    padding: 40px;
+    border-radius: 16px;
+    background: linear-gradient(145deg, #ffffff, #f2f2f2);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12), 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s ease-in-out;
+    animation: fadeInUp 0.6s ease-out forwards;
+    transform: translateY(15px);
+}
+
+/* Heading */
+.authForm h2 {
+    text-align: center;
+    font-size: 2.3rem;
+    font-weight: 700;
+    color: #333333;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: color 0.3s ease-in-out;
+}
+
+/* Hover effect on heading */
+.authForm:hover h2 {
+    color: #3498db;
+}
+
+/* Input Fields */
+.authFormInputs {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.form-floating {
+    position: relative;
+}
+
+.form-control {
+    width: 100%;
+    padding: 14px 18px;
+    font-size: 1rem;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    transition: all 0.3s ease;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.05);
+}
+
+.form-control:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 8px rgba(52, 152, 219, 0.6);
+    background-color: #ffffff;
+}
+
+/* Floating label on input focus */
+label {
+    position: absolute;
+    left: 18px;
+    top: -10px;
+    font-size: 0.9rem;
+    color: #3498db;
+    transition: 0.3s ease-in-out;
+}
+
+/* Floating label effect */
+.form-control:focus + label {
+    top: -22px;
+    font-size: 0.8rem;
+    color: #3498db;
+}
+
+/* User Type Dropdown */
+.form-select {
+    padding: 14px 18px;
+    font-size: 1rem;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    width: 100%;
+    background-color: #f9f9f9;
+    margin-bottom: 25px;
+    transition: all 0.3s ease;
+}
+
+.form-select:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 8px rgba(52, 152, 219, 0.6);
+    background-color: #ffffff;
+}
+
+/* Button Styles */
+.btn {
+    width: 100%;
+    padding: 14px;
+    background-color: #3498db;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Button Hover Effect */
+.btn:hover {
+    background-color: #2980b9;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Button Active Effect */
+.btn:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Link Text (Already Registered) */
+p {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1rem;
+    color: #333;
+}
+
+span {
+    color: #3498db;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+span:hover {
+    text-decoration: underline;
+}
+
+/* Animation for form transition */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* For Mobile Screens */
+@media (max-width: 768px) {
+    .authForm {
+        padding: 30px;
+        max-width: 100%;
+        margin: 20px auto;
+    }
+
+    .authForm h2 {
+        font-size: 1.8rem;
+    }
+}

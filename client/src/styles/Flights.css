@@ -1,0 +1,122 @@
+/* General Styles for All Flights Page */
+.allFlightsPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f8f9fa;
+    min-height: 100vh;
+    padding: 40px 20px;
+    font-family: 'Arial', sans-serif;
+    animation: fadeIn 1.5s ease-out;
+  }
+  
+  /* Fade In Animation */
+  @keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* Not Approved Message Box */
+  .notApproved-box {
+    background-color: #f5c6cb;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    margin: 30px 0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    animation: slideUp 1s ease-out;
+  }
+  
+  @keyframes slideUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  
+  .notApproved-box h3 {
+    color: #721c24;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+  }
+  
+  .notApproved-box p {
+    color: #721c24;
+    font-size: 1.2rem;
+  }
+  
+  /* All Flights Section */
+  .allFlights {
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 40px;
+  }
+  
+  /* Individual Flight Card */
+  .allFlights-Flight {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    width: 30%;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeIn 1s ease-out;
+    overflow: hidden;
+  }
+  
+  .allFlights-Flight:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Flight Card Text Styling */
+  .allFlights-Flight p {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .allFlights-Flight span {
+    display: block;
+    margin-bottom: 20px;
+  }
+  
+  /* Flight Title and Labels */
+  .allFlights-Flight b {
+    color: #3498db;
+  }
+  
+  /* Edit Button */
+  .allFlights-Flight button {
+    background-color: #3498db;
+    color: #ffffff;
+    padding: 12px 25px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    text-align: center;
+    display: inline-block;
+  }
+  
+  .allFlights-Flight button:hover {
+    background-color: #2980b9;
+    transform: scale(1.05);
+  }
+  
+  /* Mobile Responsiveness */
+  @media (max-width: 768px) {
+    .allFlights-Flight {
+      width: 80%;
+      margin-bottom: 30px;
+    }
+  
+    .allFlights {
+      width: 100%;
+    }
+  }
+  
+  

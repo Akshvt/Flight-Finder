@@ -1,0 +1,142 @@
+/* General Layout */
+.flightAdmin-page {
+    min-height: 100vh;
+    background: url('https://www.savethestudent.org/uploads/flights.jpg') no-repeat center center;
+    background-size: cover; /* Make sure the image covers the full background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1; /* Make sure the content sits above the background */
+}
+
+/* Animation for the page */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Main container styling */
+.flightAdmin-page .admin-page-cards {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+    animation: fadeIn 1.5s ease-in-out;
+    z-index: 2; /* Content should be above background */
+}
+
+/* Card Style - Transparent background */
+.card {
+    background: rgba(255, 255, 255, 0.8); /* White with 80% opacity */
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 250px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    z-index: 3; /* Cards should be above the container */
+}
+
+.card h4 {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.card button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.card button:hover {
+    background-color: #0056b3;
+}
+
+/* Hover effect for the cards */
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Styling for approval status */
+.notApproved-box {
+    background: #fef3c7;
+    border: 2px solid #fbd38d;
+    padding: 20px;
+    text-align: center;
+    width: 80%;
+    max-width: 600px;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.notApproved-box h3 {
+    font-size: 1.8rem;
+    color: #d69e2e;
+    margin-bottom: 10px;
+}
+
+.notApproved-box p {
+    font-size: 1.2rem;
+    color: #7b7f7e;
+}
+
+/* Styling for rejected status */
+.notApproved-box.rejected {
+    background: #fce4e4;
+    border: 2px solid #fda4af;
+}
+
+.notApproved-box.rejected h3 {
+    color: #f87171;
+}
+
+/* Styling for success approval */
+.notApproved-box.approved {
+    background: #c6f6d5;
+    border: 2px solid #9ae3b0;
+}
+
+.notApproved-box.approved h3 {
+    color: #38a169;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .flightAdmin-page .admin-page-cards {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .notApproved-box {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+}

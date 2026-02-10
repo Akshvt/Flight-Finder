@@ -1,0 +1,131 @@
+/* General Layout */
+.NewFlightPage {
+    min-height: 100vh;
+    background: url('https://media.istockphoto.com/id/2148553221/photo/passenger-airplane-taking-off-at-sunset.webp?a=1&b=1&s=612x612&w=0&k=20&c=3jFleGbVyLLFuyAkkZIv5ZVm6kQUrFGXMwFfPxsnZNY=') center center no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding-top: 100px;
+  }
+  
+  /* Animated plane route effect */
+  @keyframes planeRoute {
+    0% {
+      transform: translateY(0) translateX(0);
+    }
+    100% {
+      transform: translateY(-150px) translateX(100vw);
+    }
+  }
+  
+  /* Animated Plane */
+  .plane {
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    width: 50px;
+    height: 50px;
+    background: url('https://img.icons8.com/ios-filled/50/000000/airplane.png') no-repeat center;
+    background-size: contain;
+    animation: planeRoute 10s linear infinite;
+  }
+  
+  /* Main container for flight editing form */
+  .NewFlightPageContainer {
+    background: rgba(255, 255, 255, 0.7); /* Reduced opacity for more transparency */
+    padding: 40px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 800px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    animation: slideIn 1s ease forwards;
+    opacity: 0;
+  }
+  
+  /* Slide-in animation for form */
+  @keyframes slideIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+  }
+  
+  /* Form Styles */
+  .form-floating {
+    margin-bottom: 20px;
+  }
+  
+  .form-control {
+    border-radius: 10px;
+    padding: 10px;
+  }
+  
+  .form-select {
+    border-radius: 10px;
+  }
+  
+  .form-floating label {
+    font-size: 1rem;
+    color: #333;
+  }
+  
+  button {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Custom style for the flight details section */
+  .newFlightSpan1, .newFlightSpan2 {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  
+  .newFlightSpan1 .form-floating,
+  .newFlightSpan2 .form-floating {
+    flex: 1;
+  }
+  
+  /* Styling for the select and input fields */
+  .form-floating select {
+    padding: 10px;
+    font-size: 1rem;
+  }
+  
+  .form-floating input {
+    padding: 10px;
+    font-size: 1rem;
+  }
+  
+  /* Responsiveness */
+  @media (max-width: 768px) {
+    .NewFlightPageContainer {
+      padding: 20px;
+    }
+  
+    .newFlightSpan1, .newFlightSpan2 {
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    button {
+      width: 100%;
+    }
+  }
+  
