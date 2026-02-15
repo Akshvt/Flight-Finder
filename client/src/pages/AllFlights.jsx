@@ -1,12 +1,12 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom';
+
 import '../styles/AllFlights.css';
 import API_BASE_URL from '../config/api';
 
 const AllFlights = () => {
   const [flights, setFlights] = useState([]);
-  const navigate = useNavigate();
+
 
 
   const fetchFlights = async () => {

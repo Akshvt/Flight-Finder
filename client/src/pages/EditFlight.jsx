@@ -23,41 +23,40 @@ const EditFlight = () => {
   }, [startTime])
 
   useEffect(() => {
+    const fetchFlightData = async () => {
+      await axios.get(`${API_BASE_URL}/fetch-flight/${id}`).then(
+        (response) => {
+          console.log(response.data);
+          setFlightName(response.data.flightName);
+          setFlightId(response.data.flightId);
+          setOrigin(response.data.origin);
+          setDestination(response.data.destination);
+          setTotalSeats(response.data.totalSeats);
+          setBasePrice(response.data.basePrice);
+
+          const timeParts1 = response.data.departureTime.split(":");
+          const startT = new Date();
+          startT.setHours(parseInt(timeParts1[0], 10));
+          startT.setMinutes(parseInt(timeParts1[1], 10));
+          const hours1 = String(startT.getHours()).padStart(2, '0');
+          const minutes1 = String(startT.getMinutes()).padStart(2, '0');
+
+          setStartTime(`${hours1}:${minutes1}`);
+
+          const timeParts2 = response.data.arrivalTime.split(":");
+          const startD = new Date();
+          startD.setHours(parseInt(timeParts2[0], 10));
+          startD.setMinutes(parseInt(timeParts2[1], 10));
+          const hours2 = String(startD.getHours()).padStart(2, '0');
+          const minutes2 = String(startD.getMinutes()).padStart(2, '0');
+
+          setArrivalTime(`${hours2}:${minutes2}`);
+
+        }
+      )
+    }
     fetchFlightData();
-  }, [])
-
-  const fetchFlightData = async () => {
-    await axios.get(`${API_BASE_URL}/fetch-flight/${id}`).then(
-      (response) => {
-        console.log(response.data);
-        setFlightName(response.data.flightName);
-        setFlightId(response.data.flightId);
-        setOrigin(response.data.origin);
-        setDestination(response.data.destination);
-        setTotalSeats(response.data.totalSeats);
-        setBasePrice(response.data.basePrice);
-
-        const timeParts1 = response.data.departureTime.split(":");
-        const startT = new Date();
-        startT.setHours(parseInt(timeParts1[0], 10));
-        startT.setMinutes(parseInt(timeParts1[1], 10));
-        const hours1 = String(startT.getHours()).padStart(2, '0');
-        const minutes1 = String(startT.getMinutes()).padStart(2, '0');
-
-        setStartTime(`${hours1}:${minutes1}`);
-
-        const timeParts2 = response.data.arrivalTime.split(":");
-        const startD = new Date();
-        startD.setHours(parseInt(timeParts2[0], 10));
-        startD.setMinutes(parseInt(timeParts2[1], 10));
-        const hours2 = String(startD.getHours()).padStart(2, '0');
-        const minutes2 = String(startD.getMinutes()).padStart(2, '0');
-
-        setArrivalTime(`${hours2}:${minutes2}`);
-
-      }
-    )
-  }
+  }, [id])
 
   const handleSubmit = async () => {
 

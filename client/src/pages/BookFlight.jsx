@@ -17,21 +17,20 @@ const BookFlight = () => {
 
 
   useEffect(() => {
+    const fetchFlightData = async () => {
+      await axios.get(`${API_BASE_URL}/fetch-flight/${id}`).then(
+        (response) => {
+          setFlightName(response.data.flightName);
+          setFlightId(response.data.flightId);
+          setBasePrice(response.data.basePrice);
+          setStartCity(response.data.origin);
+          setDestinationCity(response.data.destination);
+          setStartTime(response.data.departureTime);
+        }
+      )
+    }
     fetchFlightData();
-  }, [])
-
-  const fetchFlightData = async () => {
-    await axios.get(`${API_BASE_URL}/fetch-flight/${id}`).then(
-      (response) => {
-        setFlightName(response.data.flightName);
-        setFlightId(response.data.flightId);
-        setBasePrice(response.data.basePrice);
-        setStartCity(response.data.origin);
-        setDestinationCity(response.data.destination);
-        setStartTime(response.data.departureTime);
-      }
-    )
-  }
+  }, [id])
 
 
   const [email, setEmail] = useState('');
@@ -65,7 +64,7 @@ const BookFlight = () => {
     if (price[coachType] * basePrice * numberOfPassengers) {
       setTotalPrice(price[coachType] * basePrice * numberOfPassengers);
     }
-  }, [numberOfPassengers, coachType])
+  }, [numberOfPassengers, coachType, basePrice, price])
 
 
   const navigate = useNavigate();

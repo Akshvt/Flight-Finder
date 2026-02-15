@@ -8,7 +8,7 @@ const AllBookings = () => {
 
   const [bookings, setBookings] = useState([]);
 
-  const userId = localStorage.getItem('userId');
+
 
   useEffect(() => {
     fetchBookings();

@@ -23,7 +23,7 @@ const LandingPage = () => {
     } else if (localStorage.getItem('userType') === 'flight-operator') {
       navigate('/flight-admin');
     }
-  }, []);
+  }, [navigate]);
 
   const [Flights, setFlights] = useState([]);
 

@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+
 import './App.css';
 import Navbar from './components/Navbar';
 import LandingPage from './pages/LandingPage';
@@ -9,7 +9,7 @@ import AllUsers from './pages/AllUsers';
 import AllBookings from './pages/AllBookings';
 import AllFlights from './pages/AllFlights';
 import NewFlight from './pages/NewFlight';
-import {Routes, Route} from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import LoginProtector from './RouteProtectors/LoginProtector';
 import AuthProtector from './RouteProtectors/AuthProtector';
 import BookFlight from './pages/BookFlight';
@@ -24,7 +24,7 @@ function App() {
       <Navbar />
 
       <Routes>
-        <Route exact path = '' element={<LandingPage />} />
+        <Route exact path='' element={<LandingPage />} />
         <Route path='/auth' element={<LoginProtector> <Authenticate /> </LoginProtector>} />
         <Route path='/book-Flight/:id' element={<AuthProtector> <BookFlight /> </AuthProtector>} />
         <Route path='/bookings' element={<AuthProtector> <Bookings /> </AuthProtector>} />

@@ -7,7 +7,7 @@ import './Register.css'; // Make sure 'Register.css' is the correct file name
 
 const Register = ({ setIsLogin }) => {
 
-  const { setUsername, setEmail, setPassword, usertype, setUsertype, register, setHomeBranch } = useContext(GeneralContext);
+  const { setUsername, setEmail, setPassword, setUsertype, register } = useContext(GeneralContext);
 
   const handleRegister = async (e) => {
     e.preventDefault();
