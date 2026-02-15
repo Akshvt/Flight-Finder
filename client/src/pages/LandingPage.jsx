@@ -98,75 +98,79 @@ const LandingPage = () => {
           </button>
 
           <div className="Flight-search-container-body">
-            <div className="form-floating">
-              <select
-                className="form-select"
-                value={departure}
-                onChange={(e) => setDeparture(e.target.value)}
-              >
-                <option value="" disabled>Select</option>
-                <option value="Chennai">Chennai</option>
-                <option value="Banglore">Banglore</option>
-                <option value="Hyderabad">Hyderabad</option>
-                <option value="Mumbai">Mumbai</option>
-                <option value="Indore">Indore</option>
-                <option value="Delhi">Delhi</option>
-                <option value="Pune">Pune</option>
-                <option value="Trivendrum">Trivendrum</option>
-                <option value="Bhopal">Bhopal</option>
-                <option value="Kolkata">Kolkata</option>
-                <option value="varanasi">Varanasi</option>
-                <option value="Jaipur">Jaipur</option>
-              </select>
-              <label>Departure City</label>
+            <div className="search-row">
+              <div className="form-floating">
+                <select
+                  className="form-select"
+                  value={departure}
+                  onChange={(e) => setDeparture(e.target.value)}
+                >
+                  <option value="" disabled>Select</option>
+                  <option value="Chennai">Chennai</option>
+                  <option value="Banglore">Banglore</option>
+                  <option value="Hyderabad">Hyderabad</option>
+                  <option value="Mumbai">Mumbai</option>
+                  <option value="Indore">Indore</option>
+                  <option value="Delhi">Delhi</option>
+                  <option value="Pune">Pune</option>
+                  <option value="Trivendrum">Trivendrum</option>
+                  <option value="Bhopal">Bhopal</option>
+                  <option value="Kolkata">Kolkata</option>
+                  <option value="varanasi">Varanasi</option>
+                  <option value="Jaipur">Jaipur</option>
+                </select>
+                <label>Departure City</label>
+              </div>
+
+              <div className="form-floating">
+                <select
+                  className="form-select"
+                  value={destination}
+                  onChange={(e) => setDestination(e.target.value)}
+                >
+                  <option value="" disabled>Select</option>
+                  <option value="Chennai">Chennai</option>
+                  <option value="Banglore">Banglore</option>
+                  <option value="Hyderabad">Hyderabad</option>
+                  <option value="Mumbai">Mumbai</option>
+                  <option value="Indore">Indore</option>
+                  <option value="Delhi">Delhi</option>
+                  <option value="Pune">Pune</option>
+                  <option value="Trivendrum">Trivendrum</option>
+                  <option value="Bhopal">Bhopal</option>
+                  <option value="Kolkata">Kolkata</option>
+                  <option value="varanasi">Varanasi</option>
+                  <option value="Jaipur">Jaipur</option>
+                </select>
+                <label>Destination City</label>
+              </div>
             </div>
 
-            <div className="form-floating">
-              <select
-                className="form-select"
-                value={destination}
-                onChange={(e) => setDestination(e.target.value)}
-              >
-                <option value="" disabled>Select</option>
-                <option value="Chennai">Chennai</option>
-                <option value="Banglore">Banglore</option>
-                <option value="Hyderabad">Hyderabad</option>
-                <option value="Mumbai">Mumbai</option>
-                <option value="Indore">Indore</option>
-                <option value="Delhi">Delhi</option>
-                <option value="Pune">Pune</option>
-                <option value="Trivendrum">Trivendrum</option>
-                <option value="Bhopal">Bhopal</option>
-                <option value="Kolkata">Kolkata</option>
-                <option value="varanasi">Varanasi</option>
-                <option value="Jaipur">Jaipur</option>
-              </select>
-              <label>Destination City</label>
-            </div>
-
-            <div className="form-floating">
-              <input
-                type="date"
-                className="form-control"
-                value={departureDate}
-                onChange={(e) => setDepartureDate(e.target.value)}
-              />
-              <label>Journey Date</label>
-            </div>
-
-            {checkBox && (
+            <div className="search-row">
               <div className="form-floating">
                 <input
                   type="date"
                   className="form-control"
-                  value={returnDate}
-                  onChange={(e) => setReturnDate(e.target.value)}
+                  value={departureDate}
+                  onChange={(e) => setDepartureDate(e.target.value)}
                 />
-                <label>Return Date</label>
+                <label>Journey Date</label>
               </div>
-            )}
 
-            <button className="btn btn-primary" onClick={fetchFlights}>Search</button>
+              {checkBox && (
+                <div className="form-floating">
+                  <input
+                    type="date"
+                    className="form-control"
+                    value={returnDate}
+                    onChange={(e) => setReturnDate(e.target.value)}
+                  />
+                  <label>Return Date</label>
+                </div>
+              )}
+
+              <button className="btn btn-primary" onClick={fetchFlights}>Search</button>
+            </div>
           </div>
 
           <p className="text-danger">{error}</p>
