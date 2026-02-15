@@ -61,10 +61,11 @@ const BookFlight = () => {
   };
 
   useEffect(() => {
+    const price = { 'economy': 1, 'premium-economy': 2, 'business': 3, 'first-class': 4 }
     if (price[coachType] * basePrice * numberOfPassengers) {
       setTotalPrice(price[coachType] * basePrice * numberOfPassengers);
     }
-  }, [numberOfPassengers, coachType, basePrice, price])
+  }, [numberOfPassengers, coachType, basePrice])
 
 
   const navigate = useNavigate();
