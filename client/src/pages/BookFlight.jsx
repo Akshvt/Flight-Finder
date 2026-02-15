@@ -42,8 +42,7 @@ const BookFlight = () => {
   const [numberOfPassengers, setNumberOfPassengers] = useState(0);
   const [passengerDetails, setPassengerDetails] = useState([]);
 
-  const [totalPrice, setTotalPrice] = useState(0);
-  const price = { 'economy': 1, 'premium-economy': 2, 'business': 3, 'first-class': 4 }
+
 
 
   const handlePassengerChange = (event) => {
