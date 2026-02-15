@@ -42,6 +42,8 @@ const BookFlight = () => {
   const [numberOfPassengers, setNumberOfPassengers] = useState(0);
   const [passengerDetails, setPassengerDetails] = useState([]);
 
+  const [totalPrice, setTotalPrice] = useState(0);
+
 
 
 
