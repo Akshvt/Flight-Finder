@@ -280,12 +280,37 @@ app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-// --- Start server, then connect to MongoDB ---
-app.listen(PORT, () => {
-    console.log(`Server running @ ${PORT}`);
+
+// --- Mongoose Connection (Cached for Serverless) ---
+let cachedDb = null;
+
+async function connectToDatabase() {
+    if (cachedDb) {
+        return cachedDb;
+    }
+    try {
+        const db = await mongoose.connect(MONGODB_URI);
+        console.log('Connected to MongoDB');
+        cachedDb = db;
+        return db;
+    } catch (e) {
+        console.log(`Error in db connection ${e}`);
+        throw e;
+    }
+}
+
+// Connect to DB on every request (Vercel reuses the warm instance)
+app.use(async (req, res, next) => {
+    await connectToDatabase();
+    next();
 });
 
-mongoose.connect(MONGODB_URI).then(() => {
-    console.log('Connected to MongoDB');
-}).catch((e) => console.log(`Error in db connection ${e}`));
+// --- Start server (Local Development Only) ---
+if (process.env.NODE_ENV !== 'production') {
+    app.listen(PORT, () => {
+        console.log(`Server running @ ${PORT}`);
+    });
+}
+
+export default app;
 
