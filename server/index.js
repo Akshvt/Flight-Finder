@@ -26,6 +26,34 @@ app.use(express.static(path.join(__dirname, 'public')));
 const PORT = process.env.PORT || 6001;
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/flightBookingDB';
 
+
+// --- Mongoose Connection (Cached for Serverless) ---
+let cachedDb = null;
+
+async function connectToDatabase() {
+    if (cachedDb) {
+        return cachedDb;
+    }
+    try {
+        const db = await mongoose.connect(MONGODB_URI);
+        console.log('Connected to MongoDB');
+        cachedDb = db;
+        return db;
+    } catch (e) {
+        console.log(`Error in db connection ${e}`);
+        throw e;
+    }
+}
+
+// Connect to DB on every request (Vercel reuses the warm instance)
+app.use(async (req, res, next) => {
+    // Only connect for API routes to save time on static files
+    if (req.path.startsWith('/api')) {
+        await connectToDatabase();
+    }
+    next();
+});
+
 // --- API Routes ---
 
 // Register route
@@ -276,33 +304,9 @@ app.delete('/api/delete-flight/:id', async (req, res) => {
 });
 
 // --- Catch-all: serve React app for any non-API route ---
+// This must be LAST
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
-});
-
-
-// --- Mongoose Connection (Cached for Serverless) ---
-let cachedDb = null;
-
-async function connectToDatabase() {
-    if (cachedDb) {
-        return cachedDb;
-    }
-    try {
-        const db = await mongoose.connect(MONGODB_URI);
-        console.log('Connected to MongoDB');
-        cachedDb = db;
-        return db;
-    } catch (e) {
-        console.log(`Error in db connection ${e}`);
-        throw e;
-    }
-}
-
-// Connect to DB on every request (Vercel reuses the warm instance)
-app.use(async (req, res, next) => {
-    await connectToDatabase();
-    next();
 });
 
 // --- Start server (Local Development Only) ---
