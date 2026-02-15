@@ -309,10 +309,13 @@ app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-// --- Start server (Local Development Only) ---
-if (process.env.NODE_ENV !== 'production') {
-    app.listen(PORT, () => {
-        console.log(`Server running @ ${PORT}`);
+// --- Start server (Local Development & Render) ---
+// Connect to DB and listen if we are in dev OR on Render
+if (process.env.NODE_ENV !== 'production' || process.env.RENDER) {
+    connectToDatabase().then(() => {
+        app.listen(PORT, () => {
+            console.log(`Server running @ ${PORT}`);
+        });
     });
 }
 
