@@ -121,6 +121,7 @@
     margin-top: 3vh;
     gap: 15px;
     flex-wrap: wrap;
+    align-items: center;
 }
 
 /* Input and Select Styling */

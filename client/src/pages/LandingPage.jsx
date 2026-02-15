@@ -166,9 +166,7 @@ const LandingPage = () => {
               </div>
             )}
 
-            <div>
-              <button className="btn btn-primary" onClick={fetchFlights}>Search</button>
-            </div>
+            <button className="btn btn-primary" onClick={fetchFlights}>Search</button>
           </div>
 
           <p className="text-danger">{error}</p>
