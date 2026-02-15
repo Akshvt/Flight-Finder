@@ -41,7 +41,8 @@
 
 .landingHero-title {
     width: 60%;
-    margin: 6% 0 0 4%;
+    margin: 6% auto 0 auto;
+    text-align: center;
 }
 
 .landingHero-title h1 {
@@ -58,7 +59,7 @@
 
 /* ===== Flight Search Container ===== */
 .Flight-search-container {
-    margin-left: 5vw;
+    margin: 0 auto;
     width: fit-content;
     height: fit-content;
     background: rgba(227, 237, 237, 0.15);
