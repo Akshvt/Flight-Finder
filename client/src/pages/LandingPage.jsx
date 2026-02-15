@@ -100,7 +100,7 @@ const LandingPage = () => {
           <div className="Flight-search-container-body">
             <div className="form-floating">
               <select
-                className="form-select form-select-sm mb-3"
+                className="form-select"
                 value={departure}
                 onChange={(e) => setDeparture(e.target.value)}
               >
@@ -123,7 +123,7 @@ const LandingPage = () => {
 
             <div className="form-floating">
               <select
-                className="form-select form-select-sm mb-3"
+                className="form-select"
                 value={destination}
                 onChange={(e) => setDestination(e.target.value)}
               >
@@ -144,7 +144,7 @@ const LandingPage = () => {
               <label>Destination City</label>
             </div>
 
-            <div className="form-floating mb-3">
+            <div className="form-floating">
               <input
                 type="date"
                 className="form-control"
@@ -155,7 +155,7 @@ const LandingPage = () => {
             </div>
 
             {checkBox && (
-              <div className="form-floating mb-3">
+              <div className="form-floating">
                 <input
                   type="date"
                   className="form-control"
